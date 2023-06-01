@@ -1,9 +1,7 @@
 import React from 'react'
 import './testimonials.css'
-import AVTR1 from '../../assets/avatar1.jpg'
-import AVTR2 from '../../assets/avatar2.jpg'
-import AVTR3 from '../../assets/avatar3.jpg'
-import AVTR4 from '../../assets/avatar4.jpg'
+
+import {FaUserTie} from 'react-icons/fa'
 
 // import Swiper core and required modules
 import { Pagination } from 'swiper';
@@ -16,32 +14,33 @@ import 'swiper/css/pagination';
 
 const data = [
   {
-    avatar: AVTR1,
-    name: 'Tina Snow',
-    review: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo temporibus deserunt dicta nostrum ipsam officia ad accusantium placeat nemo, impedit ducimus sit modi distinctio alias totam quibusdam laboriosam nisi eius non autem ut? Suscipit laudantium officiis eos incidunt, harum dolore.'
+    pos: 'Director, Digital @Pactiv',
+    name: 'Marcus Clark',
+    review: 'During my internship program Kuldeep developed comprehensive reporting to assist with data governance objectives, report concepts for our business units and data cleansing for data predictive modeling. I believe that Kuldeep displays a massive amount of drive and potential. I look forward to seeing how his career unfolds in the next coming years.'
   },
   {
-    avatar: AVTR2,
-    name: 'John Doe',
-    review: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vitae ante ac erat facilisis cursus. Quisque dignissim consectetur massa, vitae congue sapien malesuada vel. Morbi at aliquet turpis. Fusce pellentesque libero nec neque congue, et finibus lacus eleifend. Nam feugiat bibendum.'
+    pos: 'Co Founder and CEO @Humourbaba',
+    name: 'Shivang Slathia',
+    review: 'Dear Kuldeep, I want to take the time to thank you for the fantastic job you have been doing for our company lately. We achieved our goals without a second of downtime which sets an example for the company about how a project should be handled for maximum benefits. You did a really good job by training your team members/interns in your field which made huge differences, and I am certain that they feel rewarded and recognized under your guidance. I am sure that you will continue to do these kinds of things in the future as well.'
   },
   {
-    avatar: AVTR3,
-    name: 'Alice Smith',
-    review: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet varius nisi, a commodo sem ullamcorper ac. Integer eu leo nec nulla lobortis viverra. Aliquam luctus mauris id scelerisque eleifend. Suspendisse non neque non elit laoreet euismod at id dui. Curabitur non fringilla lacus.'
+    pos: '',
+    name: 'Pactiv Evergreen Inc.',
+    review: 'We are lucky to have you on the Pactiv Evergreen team Kuldeep Singh! Good luck with your graduation and future endeavors.'
   },
   {
-    avatar: AVTR4,
-    name: 'Michael Johnson',
-    review: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam consequat nisi et pellentesque pellentesque. Nulla id tortor et lacus iaculis rhoncus. Integer sed nunc libero. Suspendisse ac est quis dui vestibulum venenatis eu vitae turpis. In eleifend metus vitae ligula accumsan,  bibendum.'
-  }
+    pos: "Data Scientist @Pactiv",
+    name: 'Sakshi Raghuvanshi',
+    review: ' It was really nice working with you as well! Stay in touch :)'
+  },
+  
 ];
 
 
 const Testimonials = () => {
   return (
     <section id='testimonials'>
-      <h5>Review from clients</h5>
+      <h5>Review from colleagues</h5>
       <h2>Testimonials</h2>
 
       <Swiper className="container testimonials__container"
@@ -52,13 +51,13 @@ const Testimonials = () => {
       pagination={{ clickable: true }}>
 
         {
-          data.map(({avatar, name, review}, index) => {
+          data.map(({pos, name, review}, index) => {
             return (
               <SwiperSlide key={index} className="testimonial">
               <div className="client__avatar">
-                <img src={avatar}/>
+                <FaUserTie/>
               </div>
-              <h5 className='client__name'>{name}</h5>
+              <h5 className='client__name'>{name}<br/><small>{pos}</small></h5>
               <small className='client__review'>
                 {review}
               </small>

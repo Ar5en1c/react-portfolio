@@ -9,9 +9,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 
-const Services = () => {
+const Experience = () => {
   return (
-    <section id='services'>
+    <section id='experience'>
       <h5>Where Have I Worked</h5>
       <h2>My Work Experience</h2>
 
@@ -66,4 +66,4 @@ const Services = () => {
   )
 }
 
-export default Services
+export default Experience

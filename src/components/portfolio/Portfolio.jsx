@@ -13,44 +13,44 @@ const data = [
   {
     id: 1,
     image: IMG1,
-    title: 'Crypto Currency Dashboard and Financial Visualization',
-    github: 'https://github.com',
-    demo: 'https://www.example.com'
+    title: 'Cardiovascular Disease Visualization using D3.js',
+    github: 'https://github.com/Ar5en1c/Cardio-Vascular-Disease-Visualization',
+    demo: 'https://ar5en1c.github.io/final-project/'
   },
   {
     id: 2,
     image: IMG2,
- title: 'E-commerce Website with React and Node.js',
-    github: 'https://github.com',
-    demo: 'https://www.example.com'
+    title: 'Cloud Hosting Website with HTML5 and CSS3',
+    github: 'https://github.com/Ar5en1c/moshify',
+    demo: 'https://ar5en1c.github.io/moshify/'
   },
   {
     id: 3,
     image: IMG3,
-    title: 'Social Media App with Firebase and React Native',
-    github: 'https://github.com',
+    title: 'My Portfolio Website using React.js, Swipper.js and Email.js',
+    github: 'https://github.com/Ar5en1c/My-React-Portfolio',
     demo: 'https://www.example.com'
   },
   {
     id: 4,
     image: IMG4,
-    title: 'Weather App with React and OpenWeather API',
-    github: 'https://github.com',
+    title: 'Early Stage Diabetes Prediction using Machine Learning',
+    github: 'https://github.com/Ar5en1c/Early-Stage-Diabetes-Prediction-using-Machine-Learning',
     demo: 'https://www.example.com'
   },
   {
     id: 5,
     image: IMG5,
-    title: 'Online Food Ordering System with React and Firebase',
-    github: 'https://github.com',
-    demo: 'https://www.example.com'
+    title: 'Gun Deaths Visualization In USA From DEC 2012-13',
+    github: 'https://github.com/Ar5en1c/Data-Visualization-Project',
+    demo: 'https://ksingh51.people.uic.edu/sgd.html'
   },
   {
     id: 6,
     image: IMG6,
-    title: 'Photo Restoration App with React and Firebase',
-    github: 'https://github.com',
-    demo: 'https://www.example.com'
+    title: 'Flow Particle Visaulization using D3.js and Three.js',
+    github: 'https://github.com/Ar5en1c/Data-Visualization-Project',
+    demo: 'https://ksingh51.people.uic.edu/flowviz.html'
   }
 ];
 
@@ -59,7 +59,7 @@ const Portfolio = () => {
   return (
     <section id='portfolio'>
       <h5>My Recent Work</h5>
-      <h2>Portfolio</h2>
+      <h2>Projects</h2>
 
       <div className="container portfolio__container">
         {
