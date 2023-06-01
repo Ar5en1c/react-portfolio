@@ -2,7 +2,7 @@ import React from 'react'
 import './about.css'
 import ME from '../../assets/me-about.jpg'
 import {FaAward} from 'react-icons/fa'
-import { FiUsers } from 'react-icons/fi'
+import { MdOutlineVolunteerActivism } from 'react-icons/md'
 import { VscFolderLibrary } from 'react-icons/vsc'
 
 const About = () => {
@@ -22,20 +22,20 @@ const About = () => {
             <article className='about__card'>
               <FaAward className='about__icon'/>
               <h5>Experience</h5>
-              <small>3+ Years Working</small>
-            </article>
-            <article className='about__card'>
-              <FiUsers className='about__icon'/>
-              <h5>Clients</h5>
-              <small>200+ Worldwide</small>
+              <small>1.5+ Years Experience</small>
             </article>
             <article className='about__card'>
               <VscFolderLibrary className='about__icon'/>
               <h5>Projects</h5>
-              <small>50+ Completed</small>
+              <small>20+ Completed</small>
+            </article>
+            <article className='about__card'>
+              <MdOutlineVolunteerActivism className='about__icon'/>
+              <h5>Volunteer Work</h5>
+              <small>3+ Volunteering Jobs</small>
             </article>
           </div>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate expedita eligendi corporis, sit et sequi officia dignissimos aliquam minima mollitia accusantium, eveniet numquam magni harum. Iusto error voluptates molestiae culpa.</p>
+          <p>Hello, I am a recent Computer Science graduate with internship experience in full-stack development and Data Science. I have completed 20+ projects, including web applications, mobile apps, machine learning models and Data Visualization.<br/> Proficient in Python, JavaScript, Java, and other languages/frameworks, I am dedicated to creating user-friendly interfaces and ensuring high-quality output. Let's connect and explore how we can work together to achieve common goals.</p>
           <a href="#contact" className='btn btn-primary'>Let's Talk</a>
         </div>
       </div>
