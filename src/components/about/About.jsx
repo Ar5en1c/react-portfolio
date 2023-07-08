@@ -35,7 +35,9 @@ const About = () => {
               <small>3+ Volunteering Jobs</small>
             </article>
           </div>
-          <p>Hello, I am a recent Computer Science graduate with internship experience in full-stack development and Data Science. I have completed 20+ projects, including web applications, mobile apps, machine learning models and Data Visualization.<br/> Proficient in Python, JavaScript, Java, and other languages/frameworks, I am dedicated to creating user-friendly interfaces and ensuring high-quality output. Let's connect and explore how we can work together to achieve common goals.</p>
+          <p>Welcome to my world of technology and creativity! I'm a recent Computer Science graduate with a passion for full-stack development and Data Science. With a track record of 20+ completed projects, including web apps, mobile apps, machine learning models, and captivating Data Visualization, I strive for excellence in every endeavor.
+Beyond coding, I'm also a district-level dance competition winner, infusing elegance and rhythm into my work. During my free time, I enjoy the thrill of FPS games like CS and Valorant, sharpening my strategic thinking and teamwork skills.
+Let's connect and explore how we can create something extraordinary together. Feel free to reach out and let's embark on an exciting journey!</p>
           <a href="#contact" className='btn btn-primary'>Let's Talk</a>
         </div>
       </div>
