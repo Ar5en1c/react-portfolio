@@ -34,7 +34,7 @@
   background: var(--color-bg-variant);
   border: 1px solid transparent;
   border-radius: 1rem;
-  padding: 2rem;
+  padding: 1.75rem;
   text-align: center;
   transition: var(--transition);
 }
@@ -61,7 +61,7 @@
 }
 
 .about__content p {
-  margin: 2rem 0 2.6rem;
+  margin: 2rem 0 2rem;
   color: var(--color-light);
 }
 

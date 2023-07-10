@@ -32,12 +32,12 @@ const About = () => {
             <article className='about__card'>
               <MdOutlineVolunteerActivism className='about__icon'/>
               <h5>Volunteer Work</h5>
-              <small>3+ Volunteering Jobs</small>
+              <small>3+ Jobs</small>
             </article>
           </div>
-          <p>Welcome to my world of technology and creativity! I'm a recent Computer Science graduate with a passion for full-stack development and Data Science. With a track record of 20+ completed projects, including web apps, mobile apps, machine learning models, and captivating Data Visualization, I strive for excellence in every endeavor.
-Beyond coding, I'm also a district-level dance competition winner, infusing elegance and rhythm into my work. During my free time, I enjoy the thrill of FPS games like CS and Valorant, sharpening my strategic thinking and teamwork skills.
-Let's connect and explore how we can create something extraordinary together. Feel free to reach out and let's embark on an exciting journey!</p>
+          <p>Welcome to my world of technology and creativity! <br/>I'm a recent Computer Science graduate with a passion for full-stack development and Data Science. With a track record of completing projects, including web apps, mobile apps, ML/AI, and captivating Data Visualization, I strive for excellence in every endeavor.
+<br/> <br/>Beyond coding, I'm also a district-level dance competition winner, infusing elegance and rhythm into my work. During my free time, I enjoy the thrill of FPS games like CS and Valorant, sharpening my strategic thinking and teamwork skills.
+</p>
           <a href="#contact" className='btn btn-primary'>Let's Talk</a>
         </div>
       </div>
