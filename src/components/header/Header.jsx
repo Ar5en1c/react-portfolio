@@ -50,7 +50,7 @@ const Header = () => {
   return (
     <header>
       <div className="container header__container">
-        <h5>{greeting} I'm</h5>
+        <h4>{greeting} I'm</h4>
         <h1>Kuldeep Singh</h1>
         <h5 className="text-light">Fullstack Developer | Data Scientist</h5>
         <CTA />

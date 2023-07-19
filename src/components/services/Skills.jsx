@@ -28,7 +28,8 @@ const Experience = () => {
         <h3 className="vertical-timeline-element-title">Software Development Intern</h3>
         <h5 className="vertical-timeline-element-subtitle">Humourbaba Pvt. Ltd.</h5>
         <p className='text-light'>
-          <BsPatchCheckFill className='experience__details-icon'/>Developed and maintained web application using the MERN stack (MongoDB, Express.js, React.js, Node.js). <br/><BsPatchCheckFill className='experience__details-icon'/>Implemented user authentication and authorization using JSON Web Tokens (JWT). <br/><BsPatchCheckFill className='experience__details-icon'/>Designed and developed RESTful APIs using Express.js.
+          <BsPatchCheckFill className='experience__details-icon'/>Developed and maintained web application using the MERN stack (MongoDB, Express.js, React.js, Node.js). <br/><BsPatchCheckFill className='experience__details-icon'/>Implemented user authentication and authorization using JSON Web Tokens (JWT) and Passport.js, ensuring secure access to the
+application.<br/><BsPatchCheckFill className='experience__details-icon'/>Designed and developed RESTful APIs using Express.js.
         </p>
       </VerticalTimelineElement>
       <VerticalTimelineElement
@@ -42,7 +43,9 @@ const Experience = () => {
         <h3 className="vertical-timeline-element-title">Data Science Intern</h3>
         <h5 className="vertical-timeline-element-subtitle">Pactiv Evergreen Inc.</h5>
         <p className='text-light'>
-        <BsPatchCheckFill className='experience__details-icon'/>Created a comprehensive Data Governance Dashboard using Tableau for providing crucial insights into data quality, data ownership, and data management. <br/><BsPatchCheckFill className='experience__details-icon'/>Conducted predictive data analysis on resource management and product output to optimize the labor model.
+        <BsPatchCheckFill className='experience__details-icon'/>Created a comprehensive Data Governance Dashboard using Tableau for providing crucial insights into data quality, data ownership, and data management. <br/><BsPatchCheckFill className='experience__details-icon'/>Conducted predictive data analysis on resource management and product output to optimize the labor model resulting
+in a significant reduction (~50%) in the need for workforce adjustment.<br/><BsPatchCheckFill className='experience__details-icon'/>Collaborated with cross-functional teams to identify and implement data-driven solutions to business problems, resulting in a 20%
+increase in productivity and a 10% reduction in costs.
         </p>
       </VerticalTimelineElement>
       <VerticalTimelineElement
@@ -56,7 +59,9 @@ const Experience = () => {
         <h3 className="vertical-timeline-element-title">Graduate Assistant</h3>
         <h5 className="vertical-timeline-element-subtitle">University of Illinois at Chicago (UIC)</h5>
         <p className='text-light'>
-        <BsPatchCheckFill className='experience__details-icon'/>Maintained and updated the HPC system for the Dept. of Physics, facilitating high-performance computing for research projects.<br/><BsPatchCheckFill className='experience__details-icon'/> Provided hardware and software support to over 500 PCs, printers, and servers across four buildings
+        <BsPatchCheckFill className='experience__details-icon'/>Built web applications for the College of Engineering, utilizing technologies such as Django (Python), React.js, and PostgreSQL.<br/><BsPatchCheckFill className='experience__details-icon'/>Implemented advanced security measures, enhancing overall system security by 80% through the integration of Two-Factor
+Authentication (2FA) and encrypted data storage.<br/><BsPatchCheckFill className='experience__details-icon'/>Successfully deployed the application across 10 departments, resulting in a significant 75% reduction in paperwork and streamlining
+employee review processes.
         </p>
       </VerticalTimelineElement>
     </VerticalTimeline>
