@@ -33,7 +33,8 @@ footer a {
 }
 
 .footer__socials a {
-  background: var(--color-bg);
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  backdrop-filter: blur(5px); /* Blur effect */
   color: var(--color-white);
   padding: 0.8rem;
   border-radius: 0.7rem;

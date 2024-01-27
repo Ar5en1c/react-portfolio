@@ -1,17 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import './header.css';
-import CTA from './CTA';
-import ME from '../../assets/me.png';
-import HeaderSocials from './HeaderSocials';
+import React, { useState, useEffect } from "react";
+import "./header.css";
+import CTA from "./CTA";
+import ME from "../../assets/me.png";
+import HeaderSocials from "./HeaderSocials";
 
 const Header = () => {
-  const [greeting, setGreeting] = useState('Hello'); 
+  const [greeting, setGreeting] = useState("Hello");
 
   useEffect(() => {
     const interval = setInterval(() => {
       // Function to update the greeting randomly with different languages
-      const languages = ['english', 'spanish', 'hindi', 'french', 'chinese', 'japanese']; 
-      const randomLanguage = languages[Math.floor(Math.random() * languages.length)];
+      const languages = [
+        "english",
+        "spanish",
+        "hindi",
+        "french",
+        "chinese",
+        "japanese",
+      ];
+      const randomLanguage =
+        languages[Math.floor(Math.random() * languages.length)];
       updateGreeting(randomLanguage);
     }, 1000); // Update
 
@@ -22,30 +30,29 @@ const Header = () => {
 
   const updateGreeting = (language) => {
     switch (language) {
-      case 'english':
-        setGreeting('Hello');
+      case "english":
+        setGreeting("Hello");
         break;
-      case 'spanish':
-        setGreeting('Hola');
+      case "spanish":
+        setGreeting("Hola");
         break;
-      case 'hindi':
-        setGreeting('Namaste');
+      case "hindi":
+        setGreeting("Namaste");
         break;
-      case 'french':
-        setGreeting('Bonjour');
+      case "french":
+        setGreeting("Bonjour");
         break;
-      case 'chinese':
-        setGreeting('Nǐ hǎo');
+      case "chinese":
+        setGreeting("Nǐ hǎo");
         break;
-      case 'japanese':
-        setGreeting('Konnichiwa');
+      case "japanese":
+        setGreeting("Konnichiwa");
         break;
       default:
-        setGreeting('Hello');
+        setGreeting("Hello");
         break;
     }
   };
-  
 
   return (
     <header>

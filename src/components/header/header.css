@@ -19,13 +19,14 @@ header {
 }
 
 /* ============ HEADER SOCIALS ============ */
+/* ============ HEADER SOCIALS ============ */
 .header__socials {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.8rem;
+  gap: 1rem; /* Increased gap for better spacing */
   position: absolute;
-  left: 0;
+  left: 1rem; /* Adjusted position */
   bottom: 3rem;
 }
 
@@ -39,14 +40,21 @@ header {
 /* ============ ME ============ */
 .me {
   background: linear-gradient(var(--color-primary), transparent);
-  width: 22rem;
-  height: 30rem;
+  width: 30%; /* Adjusted width for better visibility */
+  max-width: 22rem;
+  height: auto;
   position: absolute;
-  left: calc(50% - 11rem);
-  margin-top: 5rem;
-  border-radius: 12rem 12rem 0 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 2rem; /* Adjusted margin */
+  border-radius: 50% 50% 0 0;
   overflow: hidden;
-  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  padding: 1.5rem; /* Adjusted padding */
+}
+
+.me img {
+  width: 100%;
+  height: auto;
 }
 
 /* ============ SCROLL DOWN ============ */
@@ -60,9 +68,19 @@ header {
 }
 
 /* ============== MEDIA QUERIES (MEDIUM DEVICES) */
-@media screen and (max-width: 1024px) {
-  header {
-    height: 68vh;
+@media screen and (min-width: 600px) and (max-width: 1024px) {
+  .header__container {
+    padding: 2rem 1rem; /* Reduced padding */
+  }
+
+  .me {
+    width: 35%; /* Adjusted width */
+    margin-top: 1rem; /* Reduced top margin */
+  }
+
+  .header__socials {
+    left: 0.5rem; /* Adjusted position for social icons */
+    gap: 0.5rem; /* Reduced gap */
   }
 }
 
@@ -74,5 +92,14 @@ header {
   .header__socials,
   .scroll__down {
     display: none;
+  }
+
+  .header__container {
+    padding: 4rem 1rem; /* Adjust padding for smaller screens */
+  }
+
+  .me {
+    width: 70%; /* Increase the width on smaller screens */
+    margin-top: 2rem; /* Adjust top margin */
   }
 }

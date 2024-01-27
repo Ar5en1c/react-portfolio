@@ -31,12 +31,14 @@
 }
 
 .about__card {
-  background: var(--color-bg-variant);
-  border: 1px solid transparent;
+  background: rgba(0, 0, 0, 0.3); /* Semi-transparent black background */
+  backdrop-filter: blur(5px); /* Blur effect */
+  padding: 1rem;
+  border: 2px solid;
   border-radius: 1rem;
-  padding: 1.75rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
-  transition: var(--transition);
 }
 
 .about__card:hover {

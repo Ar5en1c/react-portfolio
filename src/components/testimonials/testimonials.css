@@ -13,11 +13,21 @@
 } */
 
 .testimonial {
-  background: var(--color-bg-variant);
   text-align: center;
-  padding: 2rem;
-  border-radius: 2rem;
   user-select: none;
+  background: rgba(0, 0, 0, 0.3); /* Semi-transparent black background */
+  backdrop-filter: blur(5px); /* Blur effect */
+  padding: 1.5rem;
+  border: 2px solid;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.client__name {
+  color: var(--color-primary);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
 }
 
 .client__review {
