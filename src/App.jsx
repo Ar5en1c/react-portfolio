@@ -8,7 +8,7 @@ import Testimonials from "./components/testimonials/Testimonials";
 import Contact from "./components/contact/Contact";
 import Footer from "./components/footer/Footer";
 import About from "./components/about/About";
-import ThreeCanvas from "./components/header/CanvasBackground"; // Make sure this path is correct
+import ThreeCanvas from "./components/header/CanvasBackground";
 
 const App = () => {
   return (
