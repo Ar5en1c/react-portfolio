@@ -1,105 +1,264 @@
 header {
-  height: 100vh;
-  padding-top: 7rem;
+  min-height: 90vh;
+  padding-top: 3rem;
+  padding-bottom: 0;
   overflow: hidden;
-}
-
-.header__container {
-  text-align: center;
-  height: 100%;
   position: relative;
 }
 
-/* ============ CTA ============ */
-.cta {
-  margin-top: 2.5rem;
-  display: flex;
-  gap: 1.2rem;
-  justify-content: center;
-}
-
-/* ============ HEADER SOCIALS ============ */
-/* ============ HEADER SOCIALS ============ */
-.header__socials {
+.header__container {
+  height: 100%;
+  position: relative;
+  text-align: center;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+.header__content {
+  display: flex;
   align-items: center;
-  gap: 1rem; /* Increased gap for better spacing */
-  position: absolute;
-  left: 1rem; /* Adjusted position */
-  bottom: 3rem;
+  justify-content: space-between;
+  height: 100vh;
+  max-height: 600px;
+}
+
+.header__text {
+  flex: 1;
+  text-align: left;
+  animation: fadeInLeft 1s ease;
+}
+
+.greeting {
+  font-size: 1.2rem;
+  color: var(--color-light);
+  margin-bottom: 0.8rem;
+  display: block;
+  letter-spacing: 0.05em;
+}
+
+.header__text h1 {
+  font-size: clamp(3rem, 8vw, 4.5rem);
+  background: linear-gradient(90deg, #fff, var(--color-primary));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.1;
+  margin-bottom: 1.2rem;
+}
+
+.header__text h5 {
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  color: var(--color-light);
+  margin-bottom: 2.5rem;
+}
+
+.me {
+  flex: 1;
+  max-width: 500px;
+  animation: fadeInRight 1s ease;
+}
+
+.me__image-container {
+  background: linear-gradient(var(--color-primary), transparent);
+  width: min(22rem, 90vw);
+  height: min(30rem, 80vh);
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 12rem 12rem 0 0;
+  overflow: hidden;
+  padding: 5rem 1.5rem 1.5rem 1.5rem;
+}
+
+.me__image-container img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Floating Animation */
+.floating {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* HeaderSocials - Keep visible on mobile */
+.header__socials {
+  position: fixed;
+  top: 60%;
+  left: 2.5rem;
+  /* transform: translateY(-50%); */
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  z-index: 10;
+  background: none;
+  box-shadow: none;
+  animation: fadeInLeft 1s ease 0.5s backwards;
 }
 
 .header__socials::after {
-  content: "";
-  width: 1px;
-  height: 2rem;
-  background: var(--color-primary);
+  content: none;
 }
 
-/* ============ ME ============ */
-.me {
-  background: linear-gradient(var(--color-primary), transparent);
-  width: 30%; /* Adjusted width for better visibility */
-  max-width: 22rem;
-  height: auto;
+.header__socials a {
+  color: var(--color-primary);
+  font-size: 2rem;
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.header__socials a:hover {
+  color: var(--color-white);
+  transform: scale(1.15);
+  background: none;
+}
+
+/* Scroll Down */
+.scroll__down {
+  position: fixed;
+  right: 2.5rem;
+  top: 70%;
+  /* transform: translateY(-50%); Removed rotate(90deg) */
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--color-primary);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column; /* Make content stack vertically */
+  align-items: center;
+  background: none;
+  z-index: 10;
+  animation: fadeInRight 1s ease 0.5s backwards;
+}
+
+.scroll__down-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  letter-spacing: 0.1em;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.scroll__down-indicator {
+  /* Removed rotate(-90deg) */
+  margin-top: 0.5rem;
+  margin-left: 0;
+}
+
+.chevron {
+  position: relative;
+  width: 12px;
+  height: 2px;
+  background: var(--color-primary);
+  margin: 3px 0;
+  transform: rotate(45deg);
+}
+
+.chevron:nth-child(2) {
+  animation: pulse 1.5s ease infinite;
+}
+
+.chevron:before {
+  content: "";
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
-  margin-top: 2rem; /* Adjusted margin */
-  border-radius: 50% 50% 0 0;
-  overflow: hidden;
-  padding: 1.5rem; /* Adjusted padding */
+  height: 2px;
+  width: 12px;
+  background: var(--color-primary);
+  transform: rotate(-90deg);
+  transform-origin: left;
 }
 
-.me img {
-  width: 100%;
-  height: auto;
-}
-
-/* ============ SCROLL DOWN ============ */
-.scroll__down {
-  position: absolute;
-  right: -2.3rem;
-  bottom: 5rem;
-  transform: rotate(90deg);
-  font-weight: 300;
-  font-size: 0.9rem;
-}
-
-/* ============== MEDIA QUERIES (MEDIUM DEVICES) */
-@media screen and (min-width: 600px) and (max-width: 1024px) {
-  .header__container {
-    padding: 2rem 1rem; /* Reduced padding */
+/* Animations */
+@keyframes float {
+  0% {
+    transform: translateY(0);
   }
-
-  .me {
-    width: 35%; /* Adjusted width */
-    margin-top: 1rem; /* Reduced top margin */
+  50% {
+    transform: translateY(-50px);
   }
+  100% {
+    transform: translateY(0);
+  }
+}
 
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+/* Media Queries */
+@media screen and (max-width: 1024px) {
   .header__socials {
-    left: 0.5rem; /* Adjusted position for social icons */
-    gap: 0.5rem; /* Reduced gap */
+    left: 1rem;
+  }
+  .scroll__down {
+    right: 1rem;
+  }
+  .header__content {
+    height: auto;
+    max-height: none;
   }
 }
 
-/* ============== MEDIA QUERIES (SMALL DEVICES) */
 @media screen and (max-width: 600px) {
-  header {
-    height: 100vh;
-  }
   .header__socials,
   .scroll__down {
     display: none;
   }
-
   .header__container {
-    padding: 4rem 1rem; /* Adjust padding for smaller screens */
+    min-height: 70vh;
   }
+  .header__content {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    max-height: none;
+  }
+  .header__text {
+    margin-bottom: 2rem;
+  }
+}
 
-  .me {
-    width: 70%; /* Increase the width on smaller screens */
-    margin-top: 2rem; /* Adjust top margin */
-  }
+.cta {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: flex-start;
+  margin-top: 2.5rem;
 }

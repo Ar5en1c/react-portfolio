@@ -1,27 +1,74 @@
-import React, { useState } from 'react';
-import './nav.css';
-import { AiOutlineHome } from 'react-icons/ai';
-import { AiOutlineUser } from 'react-icons/ai';
-import { RiToolsFill } from 'react-icons/ri';
-import { MdWorkHistory } from 'react-icons/md';
-import { BiMessageSquareDetail } from 'react-icons/bi';
+import React, { useState } from "react";
+import "./nav.css";
+import { AiOutlineHome, AiOutlineUser } from "react-icons/ai";
+import { BiBook, BiMessageSquareDetail } from "react-icons/bi";
+import { GiSkills } from "react-icons/gi";
 
 const Nav = () => {
-  const [activeNav, setActiveNav] = useState('#');
+  const [activeNav, setActiveNav] = useState("#");
 
-  const handleNavClick = (nav) => {
-    setActiveNav(nav);
+  const scrollToSection = (sectionId) => {
+    setActiveNav(sectionId);
+    const element = document.querySelector(sectionId);
+    if (!element) return;
+    const elementPosition = element.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth",
+    });
   };
 
+  const navClassNames = "nav";
+
   return (
-    <nav>
-      <a href="#" className={activeNav === '#' ? 'active' : ''} onClick={() => handleNavClick('#')}><AiOutlineHome/></a>
-      <a href="#about" className={activeNav === '#about' ? 'active' : ''} onClick={() => handleNavClick('#about')}><AiOutlineUser/></a>
-      <a href="#skills" className={activeNav === '#experience' ? 'active' : ''} onClick={() => handleNavClick('#experience')}><RiToolsFill/></a>
-      <a href="#experience" className={activeNav === '#services' ? 'active' : ''} onClick={() => handleNavClick('#services')}><MdWorkHistory/></a>
-      <a href="#contact" className={activeNav === '#contact' ? 'active' : ''} onClick={() => handleNavClick('#contact')}><BiMessageSquareDetail/></a>
+    <nav className={navClassNames}>
+      <div className="nav__container">
+        <button
+          onClick={() => scrollToSection("#header")}
+          className={activeNav === "#" ? "active" : ""}
+          aria-label="Home"
+        >
+          <AiOutlineHome />
+          <span>Home</span>
+        </button>
+        <button
+          onClick={() => scrollToSection("#about")}
+          className={activeNav === "#about" ? "active" : ""}
+          aria-label="About"
+        >
+          <AiOutlineUser />
+          <span>About</span>
+        </button>
+        <button
+          onClick={() => scrollToSection("#skills")}
+          className={activeNav === "#skills" ? "active" : ""}
+          aria-label="Skills"
+        >
+          <GiSkills />
+          <span>Skills</span>
+        </button>
+        <button
+          onClick={() => scrollToSection("#experience")}
+          className={activeNav === "#experience" ? "active" : ""}
+          aria-label="Experience"
+        >
+          <BiBook />
+          <span>Experience</span>
+        </button>
+
+        <button
+          onClick={() => scrollToSection("#contact")}
+          className={activeNav === "#contact" ? "active" : ""}
+          aria-label="Contact"
+        >
+          <BiMessageSquareDetail />
+          <span>Contact</span>
+        </button>
+      </div>
     </nav>
   );
 };
 
-export default Nav
+export default Nav;

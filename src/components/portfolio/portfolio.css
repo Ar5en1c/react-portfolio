@@ -1,41 +1,101 @@
 .portfolio__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.portfolio__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
 }
 
 .portfolio__item {
-  background: rgba(0, 0, 0, 0.3); /* Semi-transparent black background */
-  backdrop-filter: blur(5px); /* Blur effect */
-  padding: 1.5rem;
-  border: 2px solid;
-  border-radius: 1rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.3rem;
+  border-radius: 2rem;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
 }
 
 .portfolio__item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  background: transparent;
   border-color: var(--color-primary-variant);
-  cursor: default;
+  background: transparent;
+  transform: translateY(-5px);
 }
 
 .portfolio__item-image {
+  border-radius: 1.5rem;
   overflow: hidden;
-  border-radius: 1rem;
+  height: 200px;
+  margin-bottom: 1.5rem;
 }
 
 .portfolio__item-image img {
-  width: 100%; /* Make the image fill the container width */
-  height: auto; /* Maintain the aspect ratio */
-  object-fit: fill; /* Ensures the image covers the container */
-  border-radius: 1rem; /* Optional: if you want rounded corners */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.portfolio__item:hover .portfolio__item-image img {
+  transform: scale(1.05);
+}
+
+.portfolio__item-content {
+  padding: 0 1rem;
 }
 
 .portfolio__item h3 {
-  margin: 1.2rem 0 2rem;
+  font-size: 1.5rem;
+  margin-bottom: 1.2rem;
+  color: var(--color-white);
+}
+
+.portfolio__item-description {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+.portfolio__item-description li {
+  color: var(--color-light);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+.portfolio__item-description li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+}
+
+.portfolio__item-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.technology-tag {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-light);
+  padding: 0.4rem 0.8rem;
+  border-radius: 1rem;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+}
+
+.technology-tag:hover {
+  background: var(--color-primary);
+  color: var(--color-bg);
 }
 
 .portfolio__item-cta {
@@ -44,18 +104,65 @@
   margin-bottom: 1rem;
 }
 
-/* ============== MEDIA QUERIES (MEDIUM DEVICES) */
+.section__title {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section__title h5 {
+  color: var(--color-light);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}
+
+.section__title h2 {
+  font-size: 2.5rem;
+  background: linear-gradient(90deg, #fff 0%, rgba(255, 255, 255, 0.9) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+
+/* Media Queries */
 @media screen and (max-width: 1024px) {
-  .portfolio__container {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.2rem;
+  .portfolio__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
   }
 }
 
-/* ============== MEDIA QUERIES (SMALL DEVICES) */
 @media screen and (max-width: 600px) {
-  .portfolio__container {
+  .portfolio__grid {
     grid-template-columns: 1fr;
     gap: 1rem;
+  }
+
+  .portfolio__item {
+    padding: 1rem;
+  }
+
+  .portfolio__item-content {
+    padding: 0;
+  }
+
+  .portfolio__item h3 {
+    font-size: 1.3rem;
+  }
+
+  .portfolio__item-description li {
+    font-size: 0.9rem;
+  }
+
+  .portfolio__item-cta {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .portfolio__item-cta a {
+    width: 100%;
+    text-align: center;
   }
 }

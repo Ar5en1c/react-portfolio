@@ -1,0 +1,155 @@
+.skills__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.skills__content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.skills__card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 2rem;
+  padding: 2.5rem 2rem;
+  transition: all 0.3s ease;
+}
+
+.skills__card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+}
+
+.skills__card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.skills__icon {
+  font-size: 2.5rem;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.skills__card h3 {
+  font-size: 1.5rem;
+  color: var(--color-white);
+  margin-bottom: 1rem;
+}
+
+.skills__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.skills__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.skills__list-icon {
+  color: var(--color-primary);
+  margin-top: 4px;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.skills__list p {
+  color: var(--color-light);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Card-specific styles */
+.ios-development {
+  border-color: rgba(0, 122, 255, 0.3);
+}
+
+.web-development {
+  border-color: rgba(88, 86, 214, 0.3);
+}
+
+.cloud-development {
+  border-color: rgba(255, 149, 0, 0.3);
+}
+
+/* Animation for cards */
+.skills__card {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.skills__card:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.skills__card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.skills__card:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Media Queries */
+@media screen and (max-width: 1024px) {
+  .skills__content {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .skills__content {
+    grid-template-columns: 1fr;
+  }
+
+  .skills__card {
+    padding: 2rem 1.5rem;
+  }
+}
+
+.section__title {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section__title h5 {
+  color: var(--color-light);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}
+
+.section__title h2 {
+  font-size: 2.5rem;
+  background: linear-gradient(90deg, #fff 0%, rgba(255, 255, 255, 0.9) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}

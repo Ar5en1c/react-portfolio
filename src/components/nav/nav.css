@@ -1,17 +1,68 @@
 nav {
-  background: rgba(0, 0, 0, 0.3) !important;
   width: max-content;
-  /* display: block; */
-  padding: 0.7rem 1.7rem;
-  z-index: 2;
+  padding: 0.7rem 1.2rem;
+  z-index: 1000;
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
   bottom: 2rem;
   display: flex;
-  gap: 0.8rem;
-  border-radius: 3rem;
-  backdrop-filter: blur(15px);
+  gap: 1rem;
+  border-radius: 2rem;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(30, 30, 30, 0.65); /* more transparent, slightly darker */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  height: max-content;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  transition: none;
+}
+
+.nav__container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  height: max-content;
+}
+
+.nav__container button {
+  background: transparent;
+  padding: 0.8rem;
+  border-radius: 50%;
+  display: flex;
+  color: var(--color-light);
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav__container button span {
+  display: none;
+  position: absolute;
+  top: -2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-primary);
+  color: var(--color-bg);
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.4rem;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.nav__container button:hover span {
+  display: block;
+}
+
+.nav__container button:hover {
+  color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.nav__container button.active {
+  color: var(--color-white);
+  background: var(--color-primary);
 }
 
 nav a {
@@ -21,13 +72,125 @@ nav a {
   display: flex;
   color: var(--color-light);
   font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+nav a span {
+  display: none;
+  position: absolute;
+  top: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.4rem;
+  font-size: 0.8rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+}
+
+nav a:hover span {
+  display: block;
+  opacity: 1;
 }
 
 nav a:hover {
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-white);
+  transform: translateY(-3px);
 }
 
 nav a.active {
   background: var(--color-primary);
   color: var(--color-bg);
+  transform: scale(1.1);
+}
+
+nav a.active:hover {
+  transform: scale(1.1) translateY(-3px);
+}
+
+/* Hover effect to show text */
+@media screen and (min-width: 1024px) {
+  nav a:hover span {
+    display: inline;
+    animation: fadeIn 0.3s ease;
+  }
+}
+
+/* Animation for text appearance */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  nav {
+    padding: 0.6rem 1rem;
+    bottom: 1.5rem;
+    gap: 0.8rem;
+  }
+
+  .nav__container {
+    width: 90%;
+    padding: 0.5rem;
+    margin: 0 auto;
+    gap: 0.3rem;
+  }
+
+  .nav__container button {
+    padding: 0.7rem;
+    font-size: 1rem;
+  }
+
+  nav a {
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  nav {
+    width: 90%;
+    padding: 0.5rem 0.8rem;
+    bottom: 1rem;
+  }
+
+  .nav__container {
+    bottom: 1rem;
+    gap: 0.5rem;
+    padding: 0.5rem 1.2rem;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .nav__container button {
+    padding: 0.7rem;
+    font-size: 1rem;
+  }
+
+  nav a {
+    padding: 0.7rem;
+    font-size: 1rem;
+  }
 }

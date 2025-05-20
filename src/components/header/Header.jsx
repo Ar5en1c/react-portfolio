@@ -1,75 +1,58 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./header.css";
 import CTA from "./CTA";
-import ME from "../../assets/me.png";
 import HeaderSocials from "./HeaderSocials";
+import ME from "../../assets/me.png";
+import CanvasBackground from "./CanvasBackground";
+import { BiDownArrowAlt } from "react-icons/bi";
 
 const Header = () => {
-  const [greeting, setGreeting] = useState("Hello");
+  const headerRef = useRef(null);
+  const [isHeaderInView, setIsHeaderInView] = useState(true);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      // Function to update the greeting randomly with different languages
-      const languages = [
-        "english",
-        "spanish",
-        "hindi",
-        "french",
-        "chinese",
-        "japanese",
-      ];
-      const randomLanguage =
-        languages[Math.floor(Math.random() * languages.length)];
-      updateGreeting(randomLanguage);
-    }, 1000); // Update
-
+    const currentRef = headerRef.current;
+    const observer = new window.IntersectionObserver(
+      ([entry]) => {
+        setIsHeaderInView(entry.isIntersecting);
+      },
+      { threshold: 0.2 }
+    );
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
     return () => {
-      clearInterval(interval);
+      if (currentRef) observer.unobserve(currentRef);
     };
   }, []);
 
-  const updateGreeting = (language) => {
-    switch (language) {
-      case "english":
-        setGreeting("Hello");
-        break;
-      case "spanish":
-        setGreeting("Hola");
-        break;
-      case "hindi":
-        setGreeting("Namaste");
-        break;
-      case "french":
-        setGreeting("Bonjour");
-        break;
-      case "chinese":
-        setGreeting("Nǐ hǎo");
-        break;
-      case "japanese":
-        setGreeting("Konnichiwa");
-        break;
-      default:
-        setGreeting("Hello");
-        break;
-    }
-  };
-
   return (
-    <header>
+    <header ref={headerRef} id="header">
+      <CanvasBackground />
       <div className="container header__container">
-        <h4>{greeting} I'm</h4>
-        <h1>Kuldeep Singh</h1>
-        <h5 className="text-light">Fullstack Developer | Data Scientist</h5>
-        <CTA />
-        <HeaderSocials />
+        {isHeaderInView && <HeaderSocials />}
+        <div className="header__content">
+          <div className="header__text">
+            <span className="greeting">Hello, I'm</span>
+            <h1>Kuldeep Singh</h1>
+            <h5 className="text-light">Full-stack Developer & iOS Engineer</h5>
+            <CTA />
+          </div>
 
-        <div className="me">
-          <img src={ME} alt="me" />
+          <div className="me">
+            <div className="me__image-container">
+              <img src={ME} alt="me" className="floating" />
+            </div>
+          </div>
         </div>
-
-        <a href="#contact" className="scroll__down">
-          Scroll Down
-        </a>
+        {isHeaderInView && (
+          <a href="#contact" className="scroll__down">
+            <span className="scroll__down-text">Scroll Down</span>
+            <div className="scroll__down-indicator">
+              <BiDownArrowAlt size={32} />
+            </div>
+          </a>
+        )}
       </div>
     </header>
   );
