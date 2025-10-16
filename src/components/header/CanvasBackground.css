@@ -11,3 +11,7 @@
   perspective: 1000;
   transform: translate3d(0, 0, 0);
 }
+
+.three-canvas--fallback {
+  background: radial-gradient(circle at 30% 20%, #2d3b5a, #0b0d18 70%);
+}
