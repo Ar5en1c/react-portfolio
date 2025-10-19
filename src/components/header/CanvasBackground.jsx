@@ -1,12 +1,26 @@
 import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import WebGL from "three/examples/jsm/capabilities/WebGL.js";
 import "./CanvasBackground.css";
 
 const ThreeCanvas = () => {
   const mountRef = useRef(null);
 
   useEffect(() => {
+    if (!mountRef.current) {
+      return undefined;
+    }
+
+    const mountElement = mountRef.current;
+
+    if (!WebGL.isWebGLAvailable()) {
+      mountElement.classList.add("three-canvas--fallback");
+      return () => {
+        mountElement.classList.remove("three-canvas--fallback");
+      };
+    }
+
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
       75,
@@ -22,10 +36,20 @@ const ThreeCanvas = () => {
     camera.position.y = orbitRadius * Math.sin(initialAngle);
     camera.position.z = 10;
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    let renderer;
+    try {
+      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    } catch (error) {
+      console.warn("Unable to initialise WebGL renderer, falling back to static background.", error);
+      mountElement.classList.add("three-canvas--fallback");
+      return () => {
+        mountElement.classList.remove("three-canvas--fallback");
+      };
+    }
+
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(window.devicePixelRatio);
-    mountRef.current.appendChild(renderer.domElement);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    mountElement.appendChild(renderer.domElement);
 
     // Particle system with improved aesthetics
     const particleGeometry = new THREE.BufferGeometry();
@@ -128,8 +152,9 @@ const ThreeCanvas = () => {
 
     window.addEventListener("resize", handleResize);
 
+    let animationFrameId;
     const animate = () => {
-      requestAnimationFrame(animate);
+      animationFrameId = requestAnimationFrame(animate);
 
       particleSystem.rotation.y += 0.0005;
       particleSystem.rotation.x += 0.0002;
@@ -141,7 +166,11 @@ const ThreeCanvas = () => {
     animate();
 
     return () => {
-      mountRef.current?.removeChild(renderer.domElement);
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+
+      mountElement.removeChild(renderer.domElement);
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleResize);
 
