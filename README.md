@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+# Kuldeep Singh — Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An interactive, space-inspired portfolio for iOS engineering and on-device AI, refreshed with September 2026 resume content. Built with React, CSS, Canvas 2D, and the existing react-icons package.
 
-## Available Scripts
+## Development
 
-In the project directory, you can run:
+```sh
+npm install
+npm start
+```
 
-### `npm start`
+## Production
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```sh
+npm run build
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The production output is in `build/`. Relative asset paths support hosting at the root or a subdirectory.
 
-### `npm test`
+The live site at https://ar5en1c.github.io/react-portfolio/ currently uses GitHub Pages branch publishing from `latestVersion` at `/`. To publish, build the app, synchronize the contents of `build/` into the repository root (including `static/` and `resume/`), then commit and push `latestVersion`. Keep the source files alongside the generated output.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The older `npm run deploy` command targets `gh-pages`, and the checked-in Actions workflow targets `main`; neither is the active Pages publishing source.
 
-### `npm run build`
+## Editing content
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- `src/data/portfolio.js`: six selected projects, benchmark caveats, and work experience.
+- `src/App.jsx`: page sections, biography, education, navigation, and social links.
+- `src/index.css`: responsive layout, design tokens, and reduced-motion support.
+- `src/components/scene/OrbitalScene.jsx`: pointer-responsive particle globe, Orbit/Neural modes, and pause/play controls.
+- `src/components/scene/ProjectVisual.jsx`: bespoke project architecture illustrations.
+- `public/resume/Kuldeep-Singh-2026.pdf`: downloadable resume.
+- `public/index.html`: page title, description, and social metadata.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The orbital illustration uses Canvas 2D, so it does not require WebGL or GPU context creation. It respects reduced-motion settings, skips drawing offscreen or in hidden tabs, and releases its animation and observers on unmount. No remote fonts or new dependencies are required. Contact uses a direct email link; there is no backend or EmailJS configuration required by the new page. Earlier components remain in `src/components/` for reference and are not imported by the redesigned page.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Project metrics are sourced from the supplied September 2026 resume. Expand “Behind the build” for measurement scope and caveats. Project illustrations are original typographic/diagrammatic treatments, not product screenshots.
